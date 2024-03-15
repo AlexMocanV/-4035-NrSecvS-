@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector> 
+
+using namespace std;
+
+long long NrSecvS(int a[], int n, int S)
+{
+    long long s=0,secv=0,j=1;
+    
+    for(int i=1;i<=n;i++)
+    {
+        s+=a[i];
+        while(s>S)
+        {
+            s-=a[j];
+            secv+=n-i+1;
+            j++;
+        }
+    }
+    return secv;
+}
+/*int main()
+{
+    int n,s;
+    cin>>n>>s;
+    int a[1001];
+    for(int i=1;i<=n;i++)
+    {
+        cin>>a[i];
+    }
+    cout<<NrSecvS(a,n,s);
+    return 0;
+}*/
